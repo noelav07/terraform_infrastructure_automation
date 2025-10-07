@@ -55,17 +55,17 @@ type = number
 default = 2
 }
 
-variable "key_name" {
+# variable "key_name" {
 
-description = "Key pair name for EC2"
-type = string
-}
+# description = "Key pair name for EC2"
+# type = string
+# }
 
-variable "public_key_path" {
+# variable "public_key_path" {
 
-description = "Absolute or relative path to public key file"
-type = string
-}
+# description = "Absolute or relative path to public key file"
+# type = string
+# }
 
 # variable "user_data_file" {
 

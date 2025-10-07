@@ -30,14 +30,14 @@ variable "user_data_base64" {
   default     = null
 }
 
-variable "key_name" {
-  description = "Name of the key pair to create/use"
-  type        = string
-}
+# variable "key_name" {
+#   description = "Name of the key pair to create/use"
+#   type        = string
+# }
 
-variable "public_key" {
-  description = "Public key material for key pair"
-  type        = string
-}
+# variable "public_key" {
+#   description = "Public key material for key pair"
+#   type        = string
+# }
 
 
