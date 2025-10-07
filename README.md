@@ -1,1 +1,0 @@
-# terraform_infrastructure_automation
