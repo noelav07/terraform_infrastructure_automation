@@ -55,17 +55,25 @@ type = number
 default = 2
 }
 
-# variable "key_name" {
+variable "key_name" {
 
-# description = "Key pair name for EC2"
-# type = string
-# }
+description = "Key pair name for EC2"
+type = string
+}
 
-# variable "public_key_path" {
+variable "public_key_path" {
 
-# description = "Absolute or relative path to public key file"
-# type = string
-# }
+description = "Absolute or relative path to public key file"
+type = string
+default = null
+}
+
+variable "public_key" {
+
+description = "Public key material (useful for Terraform Cloud)"
+type = string
+default = null
+}
 
 # variable "user_data_file" {
 
