@@ -1,19 +1,3 @@
-data "aws_ami" "latest_amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"] # This is the AWS account ID for official images
-
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
-
-
 locals {
   public_key_material = var.public_key != null && var.public_key != "" ? var.public_key : (var.public_key_path != null && var.public_key_path != "" ? file(var.public_key_path) : null)
 }
@@ -28,7 +12,7 @@ module "vpc" {
 
 module "ec2" {
   source               = "./modules/ec2"
-  ami_id               = data.aws_ami.latest_amazon_linux.id
+  ami_id               = var.ami_id
   instance_type        = var.instance_type
   subnet_ids           = module.vpc.public_subnet_ids
   security_group_ids   = [module.vpc.security_group_id]
