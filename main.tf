@@ -40,10 +40,10 @@ module "ec2" {
 
 
 
-data "aws_route53_zone" "primary" {
-  name         = "noelav.cloud"
-  private_zone = false  
-}
+# data "aws_route53_zone" "primary" {
+#   name         = "noelav.cloud"
+#   private_zone = false  
+# }
 
 resource "aws_lb" "vpc1_alb" {
   name               = "vpc1-alb"
@@ -83,22 +83,22 @@ resource "aws_lb_listener" "listener" {
   }
 }
 
-output "loadbalancerdns" {
-  value = aws_lb.vpc1_alb.dns_name
-}
+# output "loadbalancerdns" {
+#   value = aws_lb.vpc1_alb.dns_name
+# }
 
 
-resource "aws_route53_record" "alb" {
-  zone_id = data.aws_route53_zone.primary.zone_id
-  name    = "noelav.cloud"
-  type    = "A"
+# resource "aws_route53_record" "alb" {
+#   zone_id = data.aws_route53_zone.primary.zone_id
+#   name    = "noelav.cloud"
+#   type    = "A"
 
-  alias {
-    name                   = aws_lb.vpc1_alb.dns_name
-    zone_id                = aws_lb.vpc1_alb.zone_id
-    evaluate_target_health = true
-  }
-}
+#   alias {
+#     name                   = aws_lb.vpc1_alb.dns_name
+#     zone_id                = aws_lb.vpc1_alb.zone_id
+#     evaluate_target_health = true
+#   }
+# }
 
 
 
@@ -106,6 +106,6 @@ output "alb_dns"{
     value= aws_lb.vpc1_alb.dns_name
 }
 
-output "ec2_instance_ids" {
-  value = module.ec2.instance_ids
-}
+# output "ec2_instance_ids" {
+#   value = module.ec2.instance_ids
+# }
